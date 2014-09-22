@@ -2,8 +2,9 @@
 
 Parse social media attributes from url or construct url from attributes.
 
-[![Code Climate](https://codeclimate.com/github/mynewsdesk/social_media_parser/badges/gpa.svg)](https://codeclimate.com/github/mynewsdesk/social_media_parser)
 [![Build Status](https://semaphoreapp.com/api/v1/projects/488b1479-a701-4807-956c-a0a513308163/237493/badge.png)](https://semaphoreapp.com/mynewsdesk/social_media_parser)
+[![Code Climate](https://codeclimate.com/github/mynewsdesk/social_media_parser/badges/gpa.svg)](https://codeclimate.com/github/mynewsdesk/social_media_parser)
+[![Test Coverage](https://codeclimate.com/github/mynewsdesk/social_media_parser/badges/coverage.svg)](https://codeclimate.com/github/mynewsdesk/social_media_parser)
 
 ## Installation
 
