@@ -64,4 +64,8 @@ link.url
 => "http://www.ruby-lang.org/en/"
 ```
 
-The `url` method will always return a clean url, prepending http schema if needed and validating the top domain, using public_suffix.
+The `url` method will always return a clean url, prepending http schema if needed and validating the top domain, using [public_suffix](https://github.com/weppos/publicsuffix-ruby).
+
+## Requirements
+
+Ruby > 1.9
