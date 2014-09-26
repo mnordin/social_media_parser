@@ -38,7 +38,7 @@ parser.url
 => "https://www.facebook.com/teamcoco"
 ```
 
-`SocialMediaParser#parse` accepts either a url string or a hash, that accepts
+`SocialMediaParser.parse` accepts either a url string or a hash, that accepts
 
 ```ruby
 {
