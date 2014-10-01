@@ -1,4 +1,5 @@
 require 'public_suffix'
+require 'uri'
 
 module SocialMediaParser
   class Link

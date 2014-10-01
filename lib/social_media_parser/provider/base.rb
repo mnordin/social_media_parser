@@ -1,4 +1,5 @@
 require 'social_media_parser/link'
+require 'uri'
 
 module SocialMediaParser
   module Provider
