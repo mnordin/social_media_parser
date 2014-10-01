@@ -47,8 +47,8 @@ describe SocialMediaParser do
       expect(parser.username).to eq "collegehumor"
     end
 
-    it "parses username from url without user" do
-      parser = described_class.parse "https://www.youtube.com/user/collegehumor"
+    it "parses username from shortcut url" do
+      parser = described_class.parse "https://www.youtube.com/collegehumor"
       expect(parser.username).to eq "collegehumor"
     end
 
