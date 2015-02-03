@@ -4,10 +4,8 @@ require 'uri'
 module SocialMediaParser
   module Provider
     class Base < ::SocialMediaParser::Link
-      PROVIDERS = ['facebook', 'github', 'google', 'instagram', 'pinterest', 'twitter', 'youtube']
-
       def self.parse(attributes)
-        PROVIDERS.map do |provider|
+        providers.map do |provider|
           eval("SocialMediaParser::Provider::#{provider.capitalize}").new(attributes)
         end.find(&:valid?) or ::SocialMediaParser::Link.new(attributes)
       end
@@ -42,6 +40,13 @@ module SocialMediaParser
         URI.parse(url_from_attributes).path.split("/")[1]
       rescue URI::BadURIError, URI::InvalidURIError
         nil
+      end
+
+      # Does a file name lookup in the providers/ folder and outputs all file
+      # names, except for this base file
+      def self.providers
+        @providers ||= Dir.entries("lib/social_media_parser/provider/")
+          .reject{|f| File.directory? f }.map{|s| s.gsub(".rb", "")} - ["base"]
       end
     end
   end
