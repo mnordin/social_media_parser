@@ -33,9 +33,8 @@ module SocialMediaParser
 
       private
 
-      # Common social media url format, like https://www.twitter.com/teamcoco
-      # Overwrite this in subclasses when social media url formatting
-      # doesn't look like this
+      # Common social media url format, like http(s)://(www.)[provider].com/[username]
+      # Overwrite this in subclasses when url formatting is different
       def parse_username_from_url
         URI.parse(url_from_attributes).path.split("/")[1]
       rescue URI::BadURIError, URI::InvalidURIError
