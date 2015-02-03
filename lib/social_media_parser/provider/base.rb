@@ -8,9 +8,8 @@ module SocialMediaParser
 
       def self.parse(attributes)
         PROVIDERS.map do |provider|
-          Object.const_get("SocialMediaParser").const_get("Provider").const_get(provider.capitalize).new(attributes)
-        end.select(&:valid?).first or
-        ::SocialMediaParser::Link.new(attributes)
+          eval("SocialMediaParser::Provider::#{provider.capitalize}").new(attributes)
+        end.find(&:valid?) or ::SocialMediaParser::Link.new(attributes)
       end
 
       def username
