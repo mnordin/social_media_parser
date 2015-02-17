@@ -44,7 +44,7 @@ module SocialMediaParser
       # Does a file name lookup in the providers/ folder and outputs all file
       # names, except for this base file
       def self.providers
-        @providers ||= Dir.entries("lib/social_media_parser/provider/")
+        @providers ||= Dir.entries(__dir__)
           .reject{|f| File.directory? f }.map{|s| s.gsub(".rb", "")} - ["base"]
       end
     end
