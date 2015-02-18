@@ -67,6 +67,10 @@ link.url
 
 The `url` method will always return a clean url, prepending http schema if needed and validating the top domain, using [public_suffix](https://github.com/weppos/publicsuffix-ruby).
 
+## Why?
+
+We use this gem to provide a unified way to **describe a social media object, from any given input**. Most notably, if you're working with [Traackr Api](http://api.docs.traackr.com/traackr_1_0), you'll know they don't provide a url to a social media profile, whereas input directly from a user will likely only have a url.
+
 ## Requirements
 
 Ruby > 1.9
