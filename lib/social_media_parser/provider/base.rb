@@ -6,7 +6,7 @@ module SocialMediaParser
     class Base < ::SocialMediaParser::Link
       def self.parse(attributes)
         providers.map do |provider|
-          eval(provider.capitalize).new(attributes)
+          SocialMediaParser::Provider.const_get(provider.capitalize).new(attributes)
         end.find(&:valid?) or ::SocialMediaParser::Link.new(attributes)
       end
 
