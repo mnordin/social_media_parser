@@ -3,7 +3,7 @@ require 'social_media_parser/provider/base'
 module SocialMediaParser
   module Provider
     class Twitter < Base
-      URL_REGEX = /(?:(?:http|https):\/\/)?(?:www.)?twitter.com\/(?:(?:\w)*#!\/)?(\w*)/i
+      URL_REGEX = /\A(?:(?:http|https):\/\/)?(?:www.)?twitter.com\/(?:(?:\w)*#!\/)?(\w*)/i
 
       private
 

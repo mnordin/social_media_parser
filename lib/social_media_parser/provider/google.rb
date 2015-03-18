@@ -3,7 +3,7 @@ require 'social_media_parser/provider/base'
 module SocialMediaParser
   module Provider
     class Google < Base
-      URL_REGEX = /(?:(?:http|https):\/\/)plus.google.com\/?(?:u\/\d{1,}\/|)(?:\+|)([\w\-\.\%]{1,})/i
+      URL_REGEX = /\A(?:(?:http|https):\/\/)plus.google.com\/?(?:u\/\d{1,}\/|)(?:\+|)([\w\-\.\%]{1,})/i
 
       # Google Plus urls prepends + for username based urls and without for id based
       def url

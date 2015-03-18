@@ -3,7 +3,7 @@ require 'social_media_parser/provider/base'
 module SocialMediaParser
   module Provider
     class Youtube < Base
-      URL_REGEX = /(?:(?:http|https):\/\/)?(?:www.)?youtube\.com\/(?!channel|playlist)(?:user\/|)([\w\-\.]{1,})/i
+      URL_REGEX = /\A(?:(?:http|https):\/\/)?(?:www.)?youtube\.com\/(?!channel|playlist)(?:user\/|)([\w\-\.]{1,})/i
 
       def url
         "https://www.youtube.com/user/#{username}"
