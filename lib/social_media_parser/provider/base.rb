@@ -7,26 +7,26 @@ module SocialMediaParser
       def self.parse(attributes)
         providers.map do |provider|
           SocialMediaParser::Provider.const_get(provider.capitalize).new(attributes)
-        end.find(&:valid?) or ::SocialMediaParser::Link.new(attributes)
+        end.find(&:match?) or ::SocialMediaParser::Link.new(attributes)
       end
 
       def username
         return @username if @username
-        if @url_or_username and invalid_url_format? @url_or_username
+
+        if @url_or_username and not_a_url? @url_or_username
           @url_or_username
-        elsif url_from_attributes
-          parse_username_from_url
+        elsif extract_url_from_attributes
+          extract_username_from_url
         end
       end
 
       def url
-        return url_from_attributes if url_from_attributes
-        "https://www.#{provider}.com/#{username}"
+        extract_url_from_attributes || "https://www.#{provider}.com/#{username}"
       end
 
-      def valid?
+      def match?
         (@provider and @provider.downcase == provider) or
-        (username and URI.parse(url_from_attributes).host.match("#{provider}.com"))
+        URI.parse(extract_url_from_attributes).host.match("#{provider}.com")
       rescue URI::BadURIError, URI::InvalidURIError
         false
       end
@@ -35,8 +35,8 @@ module SocialMediaParser
 
       # Common social media url format, like http(s)://(www.)[provider].com/[username]
       # Overwrite this in subclasses when url formatting is different
-      def parse_username_from_url
-        URI.parse(url_from_attributes).path.split("/")[1]
+      def extract_username_from_url
+        URI.parse(extract_url_from_attributes).path.split("/")[1]
       rescue URI::BadURIError, URI::InvalidURIError
         nil
       end

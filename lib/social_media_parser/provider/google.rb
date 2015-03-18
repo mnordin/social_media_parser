@@ -10,7 +10,7 @@ module SocialMediaParser
       end
 
       def url
-        return url_from_attributes if url_from_attributes
+        return extract_url_from_attributes if extract_url_from_attributes
         if username
           if Float(username)
             "https://plus.google.com/#{username}"
@@ -22,8 +22,8 @@ module SocialMediaParser
 
       private
 
-      def parse_username_from_url
-        URL_REGEX.match(url_from_attributes).to_a[1]
+      def extract_username_from_url
+        URL_REGEX.match(extract_url_from_attributes).to_a[1]
       end
     end
   end
