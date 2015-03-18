@@ -5,10 +5,6 @@ module SocialMediaParser
     class Twitter < Base
       URL_REGEX = /(?:(?:http|https):\/\/)?(?:www.)?twitter.com\/(?:(?:\w)*#!\/)?(\w*)/i
 
-      def provider
-        'twitter'
-      end
-
       private
 
       def extract_username_from_url

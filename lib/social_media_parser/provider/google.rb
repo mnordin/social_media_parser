@@ -5,10 +5,6 @@ module SocialMediaParser
     class Google < Base
       URL_REGEX = /(?:(?:http|https):\/\/)plus.google.com\/?(?:u\/\d{1,}\/|)(?:\+|)([\w\-\.\%]{1,})/i
 
-      def provider
-        'google'
-      end
-
       def url
         return extract_url_from_attributes if extract_url_from_attributes
         if username

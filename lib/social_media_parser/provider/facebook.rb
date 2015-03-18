@@ -5,10 +5,6 @@ module SocialMediaParser
     class Facebook < Base
       URL_REGEX = /(?:(?:http|https):\/\/)?(?:www.)?facebook.com\/(?:(?:\w)*#!\/)?(?:pages\/[\w\-]*)?(?:[?\d\-]*\/)?(?:profile.php\?id=(?=\d.*))?([\w\-\.]*)?/i
 
-      def provider
-        'facebook'
-      end
-
       private
 
       def extract_username_from_url

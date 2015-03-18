@@ -20,6 +20,10 @@ module SocialMediaParser
         end
       end
 
+      def provider
+        self.class.to_s.split("::").last.downcase
+      end
+
       def url
         extract_url_from_attributes || "https://www.#{provider}.com/#{username}"
       end

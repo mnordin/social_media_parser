@@ -5,10 +5,6 @@ module SocialMediaParser
     class Linkedin < Base
       URL_REGEX = /(?:(?:http|https):\/\/)?(?:www.|[a-z]{2}.)?linkedin.com\/in\/([\w]*)/i
 
-      def provider
-        "linkedin"
-      end
-
       def url
         "https://www.linkedin.com/in/#{username}"
       end
