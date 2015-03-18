@@ -21,14 +21,6 @@ module SocialMediaParser
       valid_url_format @url
     end
 
-    def attributes
-      {
-        url: url,
-        provider: provider,
-        username: username,
-      }
-    end
-
     private
 
     def extract_url_from_attributes
