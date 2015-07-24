@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = ">= 1.9"
 
-  spec.add_dependency "public_suffix", "~> 1.4"
+  spec.add_dependency "public_suffix", "~> 1.5"
 
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "pry", "~> 0.10"
